@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ProjectSetup Example</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTinyLed" name="ledGreen">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>A led indicator</string>
+    </property>
+    <property name="whatsThis">
+     <string>The QTinyLed indicates boolean values.</string>
+    </property>
+    <property name="value">
+     <bool>true</bool>
+    </property>
+    <property name="blinking">
+     <bool>true</bool>
+    </property>
+    <property name="blinkCycleMS">
+     <number>500</number>
+    </property>
+   </widget>
+   <widget class="QTinyLed" name="ledRed">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>40</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>A led indicator</string>
+    </property>
+    <property name="whatsThis">
+     <string>The QTinyLed indicates boolean values.</string>
+    </property>
+    <property name="shape">
+     <enum>QTinyLed::Rect</enum>
+    </property>
+   </widget>
+   <widget class="QTinyLed" name="qTinyLed_3">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>140</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>A led indicator</string>
+    </property>
+    <property name="whatsThis">
+     <string>The QTinyLed indicates boolean values.</string>
+    </property>
+    <property name="shape">
+     <enum>QTinyLed::RoundRect</enum>
+    </property>
+    <property name="onColor">
+     <color>
+      <red>252</red>
+      <green>233</green>
+      <blue>79</blue>
+     </color>
+    </property>
+    <property name="offColor">
+     <color>
+      <red>58</red>
+      <green>56</green>
+      <blue>0</blue>
+     </color>
+    </property>
+    <property name="clickable">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTinyLed" name="qTinyLed_4">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>140</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>A led indicator</string>
+    </property>
+    <property name="whatsThis">
+     <string>The QTinyLed indicates boolean values.</string>
+    </property>
+    <property name="shape">
+     <enum>QTinyLed::Triangle</enum>
+    </property>
+    <property name="onColor">
+     <color>
+      <red>114</red>
+      <green>159</green>
+      <blue>207</blue>
+     </color>
+    </property>
+    <property name="offColor">
+     <color>
+      <red>0</red>
+      <green>2</green>
+      <blue>37</blue>
+     </color>
+    </property>
+    <property name="clickable">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QTinyLed</class>
+   <extends>QWidget</extends>
+   <header>QTinyLed/qTinyLed.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
