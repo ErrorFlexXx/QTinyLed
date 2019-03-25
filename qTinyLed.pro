@@ -1,4 +1,4 @@
-# Copyright 2019 Christian Löpke
+# Copyright 2019 Christian Loepke
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -38,11 +38,8 @@ QTDIR_build {
 
     target.path         = $$[QT_INSTALL_PLUGINS]/designer
 
-    INSTALLS += target
+    headers.path        = $$[QT_INSTALL_HEADERS]/QTinyLed
+    headers.files       += qTinyLed.h
 
-    unix  {
-        headers.path        = /usr/include/QTinyLed
-        headers.files       += qTinyLed.h
-        INSTALLS            += headers
-    }
+    INSTALLS += target headers
 }
