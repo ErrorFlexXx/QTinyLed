@@ -43,9 +43,10 @@ void QTinyLed::paintEvent(QPaintEvent *)
 {
     const QColor& paintColor = colors.get(blink.value && isOn);
 
-	QPainter painter(this);
-	QColor black(0, 0, 0);
-    QPoint center(width() / 2, height() / 2);
+    QPainter painter(this);
+    QColor black(0, 0, 0);
+    QRect paintArea(0, 0, width() - 1, height() - 1);
+    QPoint center(paintArea.width() / 2, paintArea.height() / 2);
 
     QRadialGradient grad;
     if(shape != Triangle)
@@ -63,22 +64,22 @@ void QTinyLed::paintEvent(QPaintEvent *)
     {
     case Elipse:
     {
-        painter.drawEllipse(center, center.x() - 1, center.y() - 1);
+        painter.drawEllipse(center, center.x(), center.y());
         break;
     }
     case Rect:
     {
-        painter.drawRect(0, 0, width(), height());
+        painter.drawRect(paintArea);
         break;
     }
     case RoundRect:
     {
-        painter.drawRoundRect(0, 0, width(), height(), 25, 25);
+        painter.drawRoundRect(paintArea, 25, 25);
         break;
     }
     case Triangle:
     {
-        QRectF rect = QRectF(0, 0, width(), height());
+        QRectF rect = QRectF(paintArea);
         QPainterPath path;
 
         path.moveTo(rect.left() + (rect.width() / 2), rect.top());
@@ -86,6 +87,7 @@ void QTinyLed::paintEvent(QPaintEvent *)
         path.lineTo(rect.bottomRight());
         path.lineTo(rect.left() + (rect.width() / 2), rect.top());
 
+        painter.drawPath(path);
         painter.fillPath(path, QBrush(grad));
         break;
     }
