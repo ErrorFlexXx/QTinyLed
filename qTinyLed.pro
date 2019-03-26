@@ -15,6 +15,8 @@
 
 QT += widgets uiplugin
 
+INCLUDEPATH += include
+
 QTDIR_build {
     PLUGIN_TYPE         = designer
     PLUGIN_CLASS_NAME   = QTinyLedPlugin
@@ -24,11 +26,11 @@ QTDIR_build {
     CONFIG              += plugin
     TEMPLATE            = lib
 
-    HEADERS             =   qTinyLedPlugin.h \
-                            qTinyLed.h
+    HEADERS             =   include/qTinyLedPlugin.h \
+                            include/qTinyLed.h
 
-    SOURCES             =   qTinyLed.cpp \
-                            qTinyLedPlugin.cpp
+    SOURCES             =   src/qTinyLed.cpp \
+                            src/qTinyLedPlugin.cpp
 
     QMAKE_PROJECT_NAME  =   widgets_qtinyled
 
@@ -39,7 +41,7 @@ QTDIR_build {
     target.path         = $$[QT_INSTALL_PLUGINS]/designer
 
     headers.path        = $$[QT_INSTALL_HEADERS]/QTinyLed
-    headers.files       += qTinyLed.h
+    headers.files       += include/qTinyLed.h
 
     INSTALLS += target headers
 }
