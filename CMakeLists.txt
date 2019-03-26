@@ -3,23 +3,26 @@ cmake_minimum_required(VERSION 3.9)
 project(QTinyLed VERSION 0.0.1 DESCRIPTION "Qt Led indicator widget.")
 
 # Find includes in corresponding build directories
-#set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed
-#set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOMOC ON)
 # Create code from a list of Qt designer ui files
 #set(CMAKE_AUTOUIC ON)
 
 set(${PROJECT_NAME}_PUBLIC_HEADER 
     include/qTinyLed.h
+    include/qTinyLedPlugin.h
+)
+
+set(${PROJECT_NAME}_SOURCES
+    src/qTinyLed.cpp
+    src/qTinyLedPlugin.cpp
 )
 
 # Find the QtWidgets library
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-add_library(${PROJECT_NAME} SHARED
-    src/qTinyLed.cpp
-    src/qTinyLedPlugin.cpp
-)
+add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_SOURCES} ${${PROJECT_NAME}_PUBLIC_HEADER})
 
 target_link_libraries(QTinyLed Qt5::Widgets)
 
