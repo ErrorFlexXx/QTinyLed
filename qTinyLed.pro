@@ -26,8 +26,8 @@ QTDIR_build {
     CONFIG              += plugin
     TEMPLATE            = lib
 
-    HEADERS             =   include/qTinyLedPlugin.h \
-                            include/qTinyLed.h
+    HEADERS             =   include/QTinyLed/qTinyLedPlugin.h \
+                            include/QTinyLed/qTinyLed.h
 
     SOURCES             =   src/qTinyLed.cpp \
                             src/qTinyLedPlugin.cpp

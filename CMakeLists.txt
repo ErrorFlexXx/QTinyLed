@@ -10,8 +10,8 @@ set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTOUIC ON)
 
 set(${PROJECT_NAME}_PUBLIC_HEADER 
-    include/qTinyLed.h
-    include/qTinyLedPlugin.h
+    include/QTinyLed/qTinyLed.h
+    include/QTinyLed/qTinyLedPlugin.h
 )
 
 set(${PROJECT_NAME}_SOURCES
@@ -37,7 +37,7 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include/${PROJECT_NAME}>  # <prefix>/include/${PROJECT_NAME}
     PRIVATE
     src
-    include
+    include/${PROJECT_NAME}
 )
 
 include(GNUInstallDirs)

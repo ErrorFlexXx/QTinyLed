@@ -15,7 +15,7 @@
  */
 
 #include <QtWidgets>
-#include "qTinyLed.h"
+#include "QTinyLed/qTinyLed.h"
 
 QTinyLed::QTinyLed(QWidget *parent)
     : QWidget(parent)

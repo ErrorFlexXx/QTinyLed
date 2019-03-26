@@ -14,8 +14,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "qTinyLed.h"
-#include "qTinyLedPlugin.h"
+#include "QTinyLed/qTinyLed.h"
+#include "QTinyLed/qTinyLedPlugin.h"
 #include <QtPlugin>
 
 QTinyLedPlugin::QTinyLedPlugin(QObject *parent)
