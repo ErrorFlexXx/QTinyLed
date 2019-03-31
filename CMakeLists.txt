@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON) # Export symbols on windows
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}) # Copy libs to exe path
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
 project(QTinyLed VERSION 0.0.1 DESCRIPTION "Qt Led indicator widget.")
 
 # Find includes in corresponding build directories
@@ -7,7 +11,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed
 set(CMAKE_AUTOMOC ON)
 # Create code from a list of Qt designer ui files
-#set(CMAKE_AUTOUIC ON)
+# set(CMAKE_AUTOUIC ON)
 
 set(${PROJECT_NAME}_PUBLIC_HEADER 
     include/QTinyLed/qTinyLed.h
@@ -29,6 +33,7 @@ target_link_libraries(QTinyLed Qt5::Widgets)
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VERSION ${PROJECT_VERSION}
     PUBLIC_HEADER "${${PROJECT_NAME}_PUBLIC_HEADER}"
+    DEFINE_SYMBOL QDESIGNER_EXPORT_WIDGETS #Fixes C2491 inconsistent dll linkage (dllimport on build) problem on windows.
 )
 
 target_include_directories(${PROJECT_NAME} 
