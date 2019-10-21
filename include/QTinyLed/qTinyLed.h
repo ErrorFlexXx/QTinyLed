@@ -95,7 +95,7 @@ public:
 
     Shape getShape() const { return shape; }
 
-    void setShape(Shape value) { shape = value; }
+    void setShape(Shape value) { shape = value; repaint();}
 
     /**
      * @brief getOnColor getter for the on color component.
@@ -107,7 +107,7 @@ public:
      * @brief setOnColor setter for the on color component.
      * @param onColor QColor to set as new on color.
      */
-    void setOnColor(const QColor& onColor) { colors.on = onColor; }
+    void setOnColor(const QColor& onColor) { colors.on = onColor; repaint();}
 
     /**
      * @brief getOffColor getter for the off color component.
@@ -119,7 +119,7 @@ public:
      * @brief setOffColor setter for the off color component.
      * @param offColor QColor to set as new off color.
      */
-    void setOffColor(const QColor& offColor) { colors.off = offColor; }
+    void setOffColor(const QColor& offColor) { colors.off = offColor; repaint();}
 
     /**
      * @brief getBlinking getter for the blink feature component.
@@ -137,12 +137,14 @@ public:
         {
             blink.timer.setInterval(blink.timer.interval());
             blink.timer.start();
+            blink.value = value;
         }
         else
         {
             blink.timer.stop();
+            blink.value = true; //Blinking shall not influence the normal output now.
         }
-        blink.value = value;
+        repaint();
     }
 
     /**
