@@ -86,7 +86,14 @@ public:
      * @brief setValue setter for the current led state.
      * @param value true, if the led shall be lit, false otherwise.
      */
-    void setValue(const bool value) { isOn = value; repaint(); }
+    void setValue(const bool value)
+    {
+        if(value != isOn)
+        {
+            isOn = value;
+            repaint();
+        }
+    }
 
     /**
      * @brief toggle toggles the leds state.
